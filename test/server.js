@@ -6,6 +6,7 @@ http.createServer(function(req,res) {
 		'Content-Type': 'text/html; charset=utf-8'
 	});
 	var content = preproccess.render('/', {
+		header: 'header content',
 		content: 'content',
 		dataList: [
 			{

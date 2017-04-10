@@ -1,3 +1,10 @@
-<h2>
-	header
-</h2>
+<h1>{vinson:field.header /}</h1>
+<ul>
+	{vinson:data from="dataList" parser="dataList"}
+		{if "[data:content /]" = "2" then}
+			<li>第二个</li>
+		{else}
+			<li>[data:content /]</li>
+		{end if}
+	{/vinson:data}
+</ul>

@@ -8,7 +8,7 @@ var preproccess = {
 };
 
 // 读取 include 文件地址 
-function parseInclude(fileDir, commandIncludePath) {
+function parseInclude(fileDir, commandIncludePath, mockData) {
 	var commonContent = '';
 
 	if(commandIncludePath) {
@@ -27,7 +27,7 @@ function parseInclude(fileDir, commandIncludePath) {
 		var logFilePath = path.resolve(fileIncludePath);
 		console.log(`错误，文件路径：${logFilePath} 无法找到`);
 	}
-	return commonContent;
+	return parseCommandViaBuildInTag(commonContent, fileIncludePath, mockData);
 };
 
 // 获取页面自定义 指令字段 并插入数据
@@ -52,7 +52,7 @@ function parseCommandViaBuildInTag(content, fileContentPath, mockData) {
 		var matchResult = null;
 
 		if(matchResult = commandString.match(includeReg)) {
-			replaceValue = parseInclude(fileDir, matchResult[1]);
+			replaceValue = parseInclude(fileDir, matchResult[1], mockData);
 		}else if(matchResult = commandString.match(fieldReg)) {
 			replaceValue = getField(matchResult[1], mockData);
 		}else {
@@ -181,7 +181,7 @@ function parseCommand(content, fileContentPath, mockData) {
 	parsedContent = parseCommandViaIf(parsedContent, mockData);
 	return parsedContent;
 }
-
+//  读取html文件
 function processHTML(filePath, mockData) {
 	var pathObject = path.parse(filePath);
 	var fileDir = pathObject.ext ? pathObject.dir : filePath;
