@@ -5,6 +5,7 @@ http.createServer(function(req,res) {
 	res.writeHead(200, {
 		'Content-Type': 'text/html; charset=utf-8'
 	});
+	preproccess.PAGE_DIR = './test/page/';
 	var content = preproccess.render('/', {
 		header: 'header content',
 		content: 'content',

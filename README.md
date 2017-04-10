@@ -7,10 +7,13 @@ Customize rendering on the server.
 
 ## How to use
 
-### server index.js
+### server
 ``` javascript
 
 	var preproccess = require('preproccess-filter');
+	// root directory
+	preproccess.PAGE_DIR = './test/page/';
+	
 	var content = preproccess.render("/", {
 		content: 'content',
 		dataList: [
@@ -31,7 +34,7 @@ Customize rendering on the server.
 	res.end(content);
 ```
 
-### client test.html
+### client
 ``` html
 
 	{vinson:include="./header.html" /}
