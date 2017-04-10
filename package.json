@@ -1,0 +1,12 @@
+{
+	"name": "preproccessFilter",
+	"version": "1.0.0",
+	"description": "customize rendering on the server",
+	"main": "index.js",
+	"repository": "https://github.com/Arguiwu/preproccessFilter.git",
+	"author": "vinson <wxgsorry@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"test": "node ./test/server"
+	}
+}

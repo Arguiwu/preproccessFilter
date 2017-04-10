@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	{vinson:include="./header.html" /}
+
+	<h1>{vinson:field.content /}</h1>
+	<ul>
+		{vinson:data from="dataList" parser="dataList"}
+			{if "[data:content /]" = "2" then}
+				<li>第二个</li>
+			{else}
+				<li>[data:content /]</li>
+			{end if}
+		{/vinson:data}
+	</ul>
+	{vinson:include="./footer.html" /}
+</body>
+</html>
